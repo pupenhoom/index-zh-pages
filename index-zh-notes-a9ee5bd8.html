@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 简明指南与提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background: #f0f2f5;
+      color: #1e2a3a;
+      line-height: 1.65;
+      padding: 2rem 1.25rem;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* hero 横幅 */
+    .hero {
+      background: linear-gradient(145deg, #eaeef3 0%, #d6dde6 100%);
+      padding: 3rem 2rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #1e2a3a;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #3e4e5e;
+      max-width: 640px;
+      margin: 0 auto;
+      border-top: 1px solid #bcc6d0;
+      padding-top: 1rem;
+    }
+
+    /* 卡片系统 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e7ebf0;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 20, 40, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1f2a38;
+      border-left: 3px solid #8898aa;
+      padding-left: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin: 1.2rem 0 0.5rem 0;
+      color: #2c3b4b;
+    }
+
+    .card p {
+      margin-bottom: 0.75rem;
+      color: #2e3d4e;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .card ul li {
+      padding: 0.25rem 0 0.25rem 1.5rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0.25rem;
+      color: #6b7e92;
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e7ecf2;
+      color: #1e2a3a;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid #d0d8e0;
+    }
+
+    /* 场景网格 */
+    .scenario-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .scenario-item {
+      background: #f5f8fb;
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      flex: 1 1 180px;
+      border: 1px solid #e2e8ef;
+      font-size: 0.95rem;
+    }
+
+    /* faq摘要 */
+    .faq-item {
+      border-bottom: 1px solid #e6eaef;
+      padding: 0.8rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1f2b39;
+    }
+
+    .faq-a {
+      color: #435568;
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    /* 页尾 */
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-top: 1px solid #dce1e8;
+      color: #506173;
+      font-size: 0.9rem;
+    }
+
+    .footer-note a {
+      color: #1e2a3a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #a3b2c2;
+    }
+
+    .footer-note a:hover {
+      color: #0b121a;
+      border-bottom: 1px solid #1e2a3a;
+    }
+
+    .reminder-box {
+      background: #eef2f7;
+      border-radius: 40px;
+      padding: 1rem 1.8rem;
+      display: inline-block;
+      border: 1px solid #d5dce5;
+      margin-top: 0.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .scenario-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 横幅 -->
+  <div class="hero">
+    <h1>开云 · 简明指南</h1>
+    <p>一份务实的访问提醒与背景说明，帮您快速了解这个站点定位与使用方式。</p>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="card">
+    <h2>背景与初衷</h2>
+    <p>日常浏览中，信息的入口往往分散而零碎。开云这一站点围绕信息获取的便利性进行组织，力求提供清晰、低噪的索引框架。它并非一个内容聚合平台，而是一组经过筛选的访问指引与场景路线，适合需要快速定位资源的用户。</p>
+    <p>
+      本站内容以实用性为前提，不夸大功能，不堆砌术语。所有推荐与说明均基于通用使用场景编写，同时保留个体差异的适应余地。
+    </p>
+    <div style="margin-top: 0.6rem;">
+      <span class="tag">实用导向</span>
+      <span class="tag">低冗余</span>
+      <span class="tag">场景索引</span>
+      <span class="tag">轻量说明</span>
+    </div>
+  </div>
+
+  <!-- 三段自然介绍（特点 + 场景 + 提醒） -->
+  <div class="card">
+    <h2>三个值得了解的侧面</h2>
+
+    <h3>① 结构特点</h3>
+    <p>页面以卡片分区代替长文本，每一块承担独立说明功能。视觉上采用浅灰背景与柔和阴影，降低长时间阅读的疲劳感。边框与间距经过克制处理，信息层级靠留白与细线区分，不依赖强装饰。</p>
+
+    <h3>② 常见使用场景</h3>
+    <div class="scenario-grid">
+      <div class="scenario-item">
+        <strong>初次了解</strong><br>
+        通过背景说明快速判断站点是否匹配自身需求。
+      </div>
+      <div class="scenario-item">
+        <strong>访问前提醒</strong><br>
+        阅读 FAQ 摘要与提示，减少操作中的不确定感。
+      </div>
+      <div class="scenario-item">
+        <strong>日常索引</strong><br>
+        将本页作为书签参考，随时回顾站点定位。
+      </div>
+    </div>
+
+    <h3>③ 访问提醒</h3>
+    <p>开云网站保持独立运营，不嵌入第三方跳转中介。如遇页面加载异常或链接变更，建议优先检查网络环境或稍后再试。本站不收集私人信息，亦不设置强制注册环节。所有对外链接均附有上下文说明，便于您自行判断。</p>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="card">
+    <h2>常见疑问摘要</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">开云是否需要注册或登录？</div>
+      <div class="faq-a">不需要。站点内容以公开索引与说明为主，不涉及用户系统。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">页面中的链接是否安全？</div>
+      <div class="faq-a">所有链接均指向明确说明的站点。建议您根据自身环境判断，并保持常规浏览安全意识。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">内容多久更新一次？</div>
+      <div class="faq-a">随站点功能与指引的调整而更新，不设固定周期。重大变更会在本页提示。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">移动端浏览体验如何？</div>
+      <div class="faq-a">本页采用响应式布局，在手机与平板设备上均可获得合理排版。</div>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示，包含唯一 a 标签，文本严格为“开云” -->
+  <div class="footer-note">
+    <p>
+      若您想进一步了解站点全貌，可直接前往
+      <a href="https://index-zh-ky.com">开云</a>
+      浏览完整索引页面。
+    </p>
+    <div class="reminder-box">
+      ⚡ 提示：建议将本页加入书签，以便后续快速查阅。
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.8rem; color: #6a7b8e;">
+      开云 · 简明指南版 · 专为清晰访问设计
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
